@@ -1,3 +1,7 @@
+# How to reference html code in this app.
+
+www -> index.html.
+
 # Hello World PhoneGap Template [![bitHound Score][bithound-img]][bithound-url]
 
 A PhoneGap Hello World template

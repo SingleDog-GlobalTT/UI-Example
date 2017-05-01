@@ -46,81 +46,36 @@
 
 <body>
 
-    <h2>『質問』合コンの適正</h2>
-    <form class="form-group" action="index.html" method="post">
-        <fieldset class="form-group">
-            <legend>猫が好きですか？</legend>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios1" id="optionsRadios1" value="option1" >
-                    好きです。
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios1" id="optionsRadios2" value="option2">
-                    好きじゃないです。
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios1" id="optionsRadios3" value="option3" >
-                    どちらとも言えない。
-                </label>
-            </div>
-        </fieldset>
-
-        <fieldset class="form-group">
-            <legend>年上が好きですか？</legend>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadios4" value="option4" >
-                    好きです。
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadios5" value="option5">
-                    好きじゃないです。
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadios6" value="option6" >
-                    どちらとも言えない。
-                </label>
-            </div>
-        </fieldset>
-
-        <fieldset class="form-group">
-            <legend>アニメが好きですか？</legend>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios3" id="optionsRadios7" value="option1" >
-                    好きです。
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios3" id="optionsRadios8" value="option2">
-                    好きじゃないです。
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios3" id="optionsRadios9" value="option3" >
-                    どちらとも言えない。
-                </label>
-            </div>
-        </fieldset>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
+    <form method="post" action="http://localhost:1337/User/Register" id="uname">
+        <div class="form-group">
+        username
+        <input name="uname"  type="text" id="n1">
+        </div>
+        time
+        <input type="text">
+        <button type="submit" class="btn btn-primary">submit</button>
+        <button type="reset">reset</button>
     </form>
 
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script>
+        $('form#uname').submit(function (event) {
+           event.preventDefault();
 
+           var user_form = $(this);
+
+           var uname = user_form.find('input#n1').val();
+           var url = user_form.attr('action');
+
+           //console.log(uname);
+            
+            $.post(url,{uname:uname}, function (data) {
+                    console.log(data);
+            });
+        });
+    </script>
 </body>
 
 </html>

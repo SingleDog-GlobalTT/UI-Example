@@ -52,43 +52,27 @@
         <h1>申し込みフォーム (サンプル)</h1>
     </div>
 
-    <form class="form-horizontal">
+    <form class="form-horizontal" action="http://localhost:1337/User/Register" method="post" id="register_form" >
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">性別 <span class="label label-danger">必須</span></label>
+            <select name="gender" required>
+                <option value="0">男性</option>
+                <option value="1">女性</option>
+            </select>
+        </div>
 
         <div class="form-group">
             <label class="col-sm-2 control-label">お名前 <span class="label label-danger">必須</span></label>
             <div class="col-sm-10">
-                <input type="text" name="name" autocomplete="name" class="form-control" placeholder="お名前" required/>
+                <input type="text" name="username" autocomplete="name" class="form-control" placeholder="お名前" required/>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">電話番号 <span class="label label-danger">必須</span></label>
+            <label class="col-sm-2 control-label">パスワード <span class="label label-danger">必須</span></label>
             <div class="col-sm-10">
-                <input type="tel" name="tel" autocomplete="tel" class="form-control" placeholder="電話番号" required/>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <!-- ▼郵便番号入力フィールド(3桁+4桁) -->
-            <label class="col-sm-2 control-label" for="postcode">郵便番号 <span class="label label-danger">必須</span></label>
-            <div class="col-sm-10">
-                <input id="postcode" class="form-control" type="text" name="zip01" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','pref01','addr01');">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <!-- ▼住所入力フィールド(都道府県) -->
-            <label class="col-sm-2 control-label" for="postcode">都道府県 </label>
-            <div class="col-sm-10">
-                <input class="form-control" type="text" name="pref01" size="20">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <!-- ▼住所入力フィールド(都道府県以降の住所) -->
-            <label class="col-sm-2 control-label" for="postcode">都道府県以降の住所</label>
-            <div class="col-sm-10">
-                <input class="form-control" type="text" name="addr01" size="60">
+                <input type="tel" name="password" autocomplete="tel" class="form-control" placeholder="パスワード" required/>
             </div>
         </div>
 
@@ -100,9 +84,16 @@
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">生年月日<span class="label label-danger">必須</span></label>
+            <label class="col-sm-2 control-label">電話番号 <span class="label label-danger">必須</span></label>
             <div class="col-sm-10">
-                <select name="bday-year" autocomplete="bday-year" required>
+                <input type="tel" name="tel" autocomplete="tel" class="form-control" placeholder="電話番号" required/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label  class="col-sm-2 control-label">生年月日<span class="label label-danger">必須</span></label>
+            <div class="col-sm-10">
+                <select name="year" autocomplete="bday-year" required>
                     <option selected="">----</option>
                     <option value="2010">2010</option>
                     <option value="2009">2009</option>
@@ -167,7 +158,7 @@
                     <option value="1950">1950</option>
                 </select>
                 <label>年</label>
-                <select name="bday-month" autocomplete="bday-month" required>
+                <select name="month" autocomplete="bday-month" required>
                     <option selected="">--</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -183,7 +174,7 @@
                     <option value="12">12</option>
                 </select>
                 <label>月</label>
-                <select name="bday-day" autocomplete="bday-day" required>
+                <select name="day" autocomplete="bday-day" required>
                     <option selected="">--</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -222,6 +213,19 @@
         </div>
 
         <div class="form-group">
+            <!-- ▼郵便番号入力フィールド(3桁+4桁) -->
+            <label class="col-sm-2 control-label" for="postcode">郵便番号 <span class="label label-danger">必須</span></label>
+            <div class="col-sm-10">
+                <input id="postcode" class="form-control" type="text" name="postcode" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','pref01','addr01');">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="postcode">画像<span class="label label-danger">必須</span></label>
+            Browse <input type="file" name="image" hidden>
+        </div>
+
+        <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-default">確認する (どこにも送信しません)</button>
             </div>
@@ -234,6 +238,7 @@
     <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/register_form.js"></script>
 
 </body>
 

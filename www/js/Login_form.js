@@ -2,6 +2,7 @@
  * Created by tyouki on 2017/05/15.
  */
 $('form#login_form').submit(function (event) {
+    alert("Send");
     event.preventDefault();
 
     var $login_form = $(this),

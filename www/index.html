@@ -37,53 +37,54 @@
 	<!--<link rel="stylesheet" type="text/css" href="css/index.css" /> -->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<title>Login Page</title>
 </head>
 
 <body >
+
+<div id="show_user_id">
+
+</div>
 
 <form class="form-horizontal" action="http://localhost:1337/User/Login" method="post" id="login_form">
 
     <div class="container" >
 
     <div style="padding:120px 60px 10px; ">
-        <img src="image/logo.PNG" height="127" width="193" class="img-responsive center-block" alt="Cinque Terre">
+        <img src="image/logo-dog.png" height="127" width="193"  class="img-responsive center-block" alt="Cinque Terre">
+        <h4 class="text-center">シングルドッグ婚カツ</h4>
         <br>
         <br>
-	<form class="bs-exaple bs-example-form" role="form" >
 
 		<div class="input-group">
             <span class="input-group-addon input-group-lg glyphicon glyphicon-envelope"></span>
-            <input type="text" name="mail" autocomplete="mail" class="form-control"  id="email" placeholder="メールアドレス" required>
+            <input type="text" name="username" autocomplete="mail" class="form-control"  id="username" placeholder="メールアドレス" required>
 		</div>
 
        <br>
 		<div class="input-group">
             <!-- <span class="input-group-addon">Password</span> -->
             <span class="input-group-addon input-group-lg glyphicon glyphicon-pencil"></span>
-            <input type="text" name="pwd" autocomplete="pwd" class="col-lg-8 form-control" id="password" placeholder="パスワード"required>
+            <input type="text" name="password" autocomplete="pwd" class="col-lg-8 form-control" id="password" placeholder="パスワード"required>
 		</div>
         <br>
         <br>
-		<form class="form-inline" role="form">
-			<button type="submit" id="login" class="btn btn-primary btn-block" style="background: #003333 ">ログイン</button>
+			<button type="submit" id="login1" class="btn btn-primary btn-block" style="background: #003333 ">ログイン</button>
             <br>
             <p class="text-center small"><a href="#forget"  style="color:#003333">パスワードを忘れた場合</a></p>
             <br>
             <br>
             <br>
             <br>
-            <button type="submit" id="login" class="btn btn-primary btn-block" style="background:#FFFFFF; color:#003333  ">登録</button>
-		</form>
-	</form>
+            <button type="button" id="login2" class="btn btn-primary btn-block" style="background:#FFFFFF; color:#003333  ">登録</button>
     </div>
 
 </div>
 
 </form>
 
-
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="js/Login_form.js"></script>
 </body>
 </html>

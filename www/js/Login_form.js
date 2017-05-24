@@ -10,14 +10,18 @@ $('form#login_form').submit(function (event) {
         password = $login_form.find('input[name="password"]').val(),
         url = $login_form.attr('action');
 
-    console.log(gender,username,password,email,tel,year,month,day,image,url);
+    console.log(username, password, url);
 
-    $.post(url,{
+    $.get(url,{
         username:username,
-        password:password,
-        url:url
+        password:password
     },function (return_data) {
-        console.log(return_data);
+        console.log("return data: ", return_data.user_id);
+
+        //store the sessionStorage
+        sessionStorage.user_id = return_data.user_id;
+
+        console.log("user's storage: ", sessionStorage.user_id);
     });
 
 });

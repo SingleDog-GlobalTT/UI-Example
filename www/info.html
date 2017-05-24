@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <title>Information Page</title>
+</head>
+<body>
+
+<h1>This is information page</h1>
+<h2>Show user information</h2>
+<div id="user_info"></div>
+
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/Login_form.js"></script>
+
+<script>
+
+    console.log("user's storage: ", sessionStorage.user_id);
+    var user_id = sessionStorage.user_id,
+            url = "http://localhost:1337/User/Profile";
+    callOtherDomain();
+    loadUserInfo(user_id);
+    function loadUserInfo() {
+        $.get(url,{user_id: user_id}, function (return_data) {
+            //$('div#user_info').append(return_data);
+
+            console.log(return_data);
+        })
+    }
+    var invocation = new XMLHttpRequest();
+
+    function callOtherDomain() {
+        if(invocation) {
+            invocation.open('GET', url, true);
+            invocation.onreadystatechange = handler;
+            invocation.send();
+        }
+    }
+</script>
+
+</body>
+</html>

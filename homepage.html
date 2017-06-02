@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <!--<link rel="stylesheet" type="text/css" href="css/index.css" /> -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <title>Homepage</title>
+</head>
+<body >
+
+<div class="panel panel-primary">
+    <div class="panel-heading text-center" style="background: #003333 ">
+        <h2 class="panel-title">シングルドッグ婚カツ</h2>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <h4 class="text-center"><img src="image/logo-dog.png" height="20" width="25"/>   以下の機能を試してね∼</h4>
+    <br>
+    <br>
+
+    <div class="panel-body">
+
+        <table class="table text-center">
+
+            <tr style="background: #f0ad4e" >
+                <td><img src="image/Start_48px_1178732_easyicon.net.png" height="48" width="48" style="position: absolute;top: 235px;"/></td>
+                <td><button type="button" id="matching" onclick="javascrtpt:window.location.href='http://localhost:63342/www/answer.html?_ijt=1ao6mee8qkm8c5ipd4n4fj114b'" class="btn btn-link" 　style="background: #000000"><h3>マッチングスタート</h3></button></td>
+            </tr>
+
+            <tr style="background: #ffbbbb">
+                <td><img src="image/saturation_34.837653478854px_1195586_easyicon.net.png" height="47" width="34" style="position: absolute;top: 325px;"/></td>
+                <td><button type="button"  id="create_question" onclick="javascrtpt:window.location.href='http://localhost:63342/www/create_answer.html?_ijt=7ueq20vgqiv18pn3oulnml7aee'" class="btn btn-link"　style="background: #000000"><h3>質問作成</h3></button></td>
+            </tr>
+
+            <tr style="background: #bce8f1">
+                <td><img src="image/rank_42.771428571429px_1192857_easyicon.net.png" height="47" width="42" style="position: absolute;top: 410px;"/></td>
+                <td><button type="button" id="ranking" onclick="javascrtpt:window.location.href='http://localhost:63342/www/ranking.html?_ijt=4jh3nit7kqbfm1906v3qiqedrl'" class="btn btn-link" 　style="background: #000000"><h3>質問ランキング</h3></button></td>
+            </tr>
+
+        </table>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+</div>
+
+<script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</body>
+
+<script>
+    $.get();
+</script>
+</html>

@@ -40,46 +40,52 @@
 	<title>Login Page</title>
 </head>
 
-<body >
+<body style="background:#ececec">
+
+<div id="show_user_id">
+
+</div>
 
 <form class="form-horizontal" action="http://localhost:1337/User/Login" method="post" id="login_form">
 
     <div class="container" >
 
     <div style="padding:120px 60px 10px; ">
-        <img src="image/logo.PNG" height="127" width="193" class="img-responsive center-block" alt="Cinque Terre">
+        <img src="image/logo-dog.png" height="127" width="193"  class="img-responsive center-block" alt="Cinque Terre">
+        <h4 class="text-center">シングルドッグ婚カツ</h4>
         <br>
         <br>
 
 		<div class="input-group">
-            <!-- this class try to load the font. But there not have a font file in server or client -->
             <span class="input-group-addon input-group-lg glyphicon glyphicon-envelope"></span>
-            <input type="text" name="username" autocomplete="mail" class="form-control"  id="email" placeholder="メールアドレス" required>
+            <input type="text" name="username" autocomplete="mail" class="form-control"  id="username" placeholder="メールアドレス" required>
 		</div>
 
        <br>
 		<div class="input-group">
+            <!-- <span class="input-group-addon">Password</span> -->
             <span class="input-group-addon input-group-lg glyphicon glyphicon-pencil"></span>
             <input type="text" name="password" autocomplete="pwd" class="col-lg-8 form-control" id="password" placeholder="パスワード"required>
 		</div>
         <br>
         <br>
-			<button type="submit" id="login" class="btn btn-primary btn-block" style="background: #003333 ">ログイン</button>
+			<button type="submit" id="login1" class="btn btn-primary btn-block" style="background: #003333 ">ログイン</button>
             <br>
             <p class="text-center small"><a href="#forget"  style="color:#003333">パスワードを忘れた場合</a></p>
             <br>
             <br>
             <br>
             <br>
-            <button type="submit" id="register" class="btn btn-primary btn-block" style="background:#FFFFFF; color:#003333  ">登録</button>
+            <button type="button" id="login2" class="btn btn-primary btn-block" style="background:#FFFFFF; color:#003333  ">登録</button>
     </div>
 
 </div>
+    <div class="text-center pet_article_footer_info" >Copyright(c)2017 Singledog All Rights Reserved</div>
 
 </form>
 
-<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/Login_form.js"></script>
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="js/Login_form.js"></script>
 </body>
 </html>

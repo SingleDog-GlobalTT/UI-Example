@@ -15,7 +15,7 @@
         <header data-am-widget="header"
                 class="am-header am-header-default pet_head_block">
             <div class="am-header-left am-header-nav ">
-                <a href="#left-link" class="iconfont pet_head_jt_ico">&#xe601;</a>
+                <a href="/homepage.html" class="iconfont pet_head_jt_ico">&#xe601;</a>
             </div>
 
             <h1 class="am-header-title pet_article_user">
@@ -150,56 +150,16 @@
                                         <div class="pet_comment_list_bottom_info_l">1時間前</div>
                                         <div class="pet_comment_list_bottom_info_r">
                                             <span><i class="iconfont">&#xe631;</i>5 </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-                        <div data-tab-panel-1 class="am-tab-panel ">
-                            <div class="pet_comment_list_block">
-                                <div class="pet_comment_list_block_l"><img src="img/a2.png" alt=""></div>
-                                <div class="pet_comment_list_block_r">
-                                    <div class="pet_comment_list_block_r_info">如月</div>
-                                    <div class="pet_comment_list_block_r_text">将来に備えて準備するべきだと思う</div>
-                                    <div class="pet_comment_list_block_r_bottom">
-                                        <div class="pet_comment_list_bottom_info_l">15分前</div>
-                                        <div class="pet_comment_list_bottom_info_r">
-                                            <span><i class="iconfont">&#xe631;</i>5 </span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="pet_comment_list_block">
-                                <div class="pet_comment_list_block_l"><img src="img/a3.png" alt=""></div>
-                                <div class="pet_comment_list_block_r">
-                                    <div class="pet_comment_list_block_r_info">五十嵐</div>
-                                    <div class="pet_comment_list_block_r_text">みんなでいるときも一人で考え事をしてしまう</div>
-                                    <div class="pet_comment_list_block_r_bottom">
-                                        <div class="pet_comment_list_bottom_info_l">30分前</div>
-                                        <div class="pet_comment_list_bottom_info_r">
-                                            <span><i class="iconfont">&#xe631;</i>5 </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pet_comment_list_block">
-                                <div class="pet_comment_list_block_l"><img src="img/a1.png" alt=""></div>
-                                <div class="pet_comment_list_block_r">
-                                    <div class="pet_comment_list_block_r_info">Amaze</div>
-                                    <div class="pet_comment_list_block_r_text">曖昧なままよりも白黒はっきりつけたい</div>
-                                    <div class="pet_comment_list_block_r_bottom">
-                                        <div class="pet_comment_list_bottom_info_l">40分前</div>
-                                        <div class="pet_comment_list_bottom_info_r">
-                                            <span><i class="iconfont">&#xe631;</i>5 </span>
-                                        </div>
-                                    </div>
-                                </div>
 
-                            </div>
+                            <!--  test load question list from server-->
                             <div class="pet_comment_list_block">
                                 <div class="pet_comment_list_block_l"><img src="img/a4.png" alt=""></div>
                                 <div class="pet_comment_list_block_r">
-                                    <div class="pet_comment_list_block_r_info">綾小路</div>
+                                    <div id="username" class="pet_comment_list_block_r_info">綾小路</div>
                                     <div class="pet_comment_list_block_r_text">完璧にやらないと気が済まない</div>
                                     <div class="pet_comment_list_block_r_bottom">
                                         <div class="pet_comment_list_bottom_info_l">1時間前</div>
@@ -209,8 +169,16 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <span id="load_question_list"></span>
+
+                            <!--  test load question list from server-->
+
                         </div>
+
                     </div>
+
+                </div>
 
         <div class="pet_article_footer_info">Copyright(c)2017 Singledog All Rights Reserved</div>
     </div>
@@ -219,8 +187,9 @@
     </div>
 </div>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/amazeui.min.js"></script>
+<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script src="/js/ranking.js"></script>
 <script>
     $(function(){
 

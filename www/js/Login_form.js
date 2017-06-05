@@ -10,21 +10,18 @@ $('form#login_form').submit(function (event) {
         password = $login_form.find('input[name="password"]').val(),
         url = $login_form.attr('action');
 
-    console.log(username,password,url);
+    console.log(username, password, url);
 
     $.get(url,{
         username:username,
         password:password
     },function (return_data) {
+        console.log("return data: ", return_data.user_id);
 
-        console.log("return: ",return_data[0].user_id);
+        //store the sessionStorage
+        sessionStorage.user_id = return_data.user_id;
 
-        for(var i=0;i<return_data.length;i++) {
-            $('div#show_user_id').append(
-                '<h2>' + return_data[i].user_id + '</h2>'
-            );
-        }
-
+        console.log("user's storage: ", sessionStorage.user_id);
     });
 
 });

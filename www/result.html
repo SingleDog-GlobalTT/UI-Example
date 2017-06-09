@@ -29,68 +29,155 @@
             text-align: center;
             padding: 2px;
         }
-    </style> 
+    </style>
 </head>
-<body>
-    <form class="form-horizontal" action="http://localhost:1337/" method="post" id="result_form">
-        <div class="navbar" style="background: #003333">
-            <h3 class="text-center" style="color: #FFFFFF">結果</h3>
-        </div>
-        <section>
-            <img src="touxiang.jpg" style="width: 200px; height: 200px;">
-            <p>シングル　大郎</p>
-            <p>----------------------------------------</p>
-        </section>
-        <h3 style="text-align:left">特性評価</h3>
-        <section>
-            <div style="display: inline-block; text-align: center; ">
-                <p>内向</p>
+<body style="background:#ececec">
+    <form class="form-horizontal" action="http://localhost:1337/Question/GetQuestion" method="post" id="answer_form">
+        <div class="pet_mian">
+            <div class="pet_head">
+                <header data-am-widget="header"
+                        class="am-header am-header-default pet_head_block">
+                    <div class="am-header-left am-header-nav ">
+                        <a href="#left-link" class="iconfont pet_head_jt_ico">&#xe601;</a>
+                    </div>
+
+                    <h1 class="am-header-title pet_article_user">
+                        <span class="pet_article_user_ico"><img src="img/a1.png" alt="" class=""></span>
+                        <span class="pet_article_user_name">結果</span>
+                    </h1>
+
+                    <div class="am-header-right am-header-nav">
+                        <a href="javascript:;" class="iconfont pet_head_gd_ico">&#xe600;</a>
+                    </div>
+                </header>
             </div>
-            <div style="display: inline-block; text-align: center; ">
-                <input id="Slider1" type="range" min="0" max="100" />
+
+            <div class="pet_more_list">
+                <div class="pet_more_list_block">
+                    <div class="iconfont pet_more_close">×</div>
+                    <div class="pet_more_list_block">
+                        <div class="pet_more_list_block_name">
+                            <div class="pet_more_list_block_name_title">機能ナビ</div>
+                            <ul>
+                                <li>
+                                    <a class="pet_more_list_block_line">
+                                        <i class="iconfont pet_nav_xinxianshi pet_more_list_block_line_ico">&#xe601;</i>
+                                        <div class="pet_more_list_block_line_font">マッチングスタート</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="pet_more_list_block_line">
+                                        <i class="iconfont pet_nav_zhangzhishi pet_more_list_block_line_ico">&#xe606;</i>
+                                        <div class="pet_more_list_block_line_font">質問作成</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="pet_more_list_block_line">
+                                        <i class="iconfont pet_nav_kantuya pet_more_list_block_line_ico">&#xe607;</i>
+                                        <div class="pet_more_list_block_line_font">質問ランキング</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="pet_more_list_block_line">
+                                        <i class="iconfont pet_nav_bk pet_more_list_block_line_ico">&#xe611;</i>
+                                        <div class="pet_more_list_block_line_font">マッチング履歴</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div style="display: inline-block; text-align: center; ">
-                <p>外向</p>
+            <div class="pet_content">
+                <section>
+                    <img src="touxiang.jpg" style="width: 200px; height: 200px;">
+                    <p>シングル　大郎</p>
+                    <p>----------------------------------------</p>
+                </section>
+                <h3 style="text-align:left">特性評価</h3>
+                <section>
+                    <div style="display: inline-block; text-align: center; ">
+                        <p>内向</p>
+                    </div>
+                    <div style="display: inline-block; text-align: center; ">
+                        <input id="Slider1" type="range" min="0" max="100" />
+                    </div>
+                    <div style="display: inline-block; text-align: center; ">
+                        <p>外向</p>
+                    </div>
+                </section>
+                <section>
+                    <div style="display: inline-block; text-align: center; ">
+                        <p>現実</p>
+                    </div>
+                    <div style="display: inline-block; text-align: center; ">
+                        <input id="Slider1" type="range" min="0" max="100" />
+                    </div>
+                    <div style="display: inline-block; text-align: center; ">
+                        <p>直観</p>
+                    </div>
+                </section>
+                <section>
+                    <div style="display: inline-block; text-align: center; ">
+                        <p>思考</p>
+                    </div>
+                    <div style="display: inline-block; text-align: center; ">
+                        <input id="Slider1" type="range" min="0" max="100" />
+                    </div>
+                    <div style="display: inline-block; text-align: center; ">
+                        <p>感情</p>
+                    </div>
+                </section>
+                <section>
+                    <div style="display: inline-block; text-align: center; ">
+                        <p>柔軟</p>
+                    </div>
+                    <div style="display: inline-block; text-align: center; ">
+                        <input id="Slider1" type="range" min="0" max="100" />
+                    </div>
+                    <div style="display: inline-block; text-align: center; ">
+                        <p>規範</p>
+                    </div>
+                </section>
+                <div style="text-align: center">
+                    <a href="marching.html">
+                        <input type="submit" value="マッチング" style="width: 80px; height: 40px; ">
+                    </a>
+                </div>
             </div>
-        </section>
-        <section>
-            <div style="display: inline-block; text-align: center; ">
-                <p>現実</p>
             </div>
-            <div style="display: inline-block; text-align: center; ">
-                <input id="Slider1" type="range" min="0" max="100" />
-            </div>
-            <div style="display: inline-block; text-align: center; ">
-                <p>直観</p>
-            </div>
-        </section>
-        <section>
-            <div style="display: inline-block; text-align: center; ">
-                <p>思考</p>
-            </div>
-            <div style="display: inline-block; text-align: center; ">
-                <input id="Slider1" type="range" min="0" max="100" />
-            </div>
-            <div style="display: inline-block; text-align: center; ">
-                <p>感情</p>
-            </div>
-        </section>
-        <section>
-            <div style="display: inline-block; text-align: center; ">
-                <p>柔軟</p>
-            </div>
-            <div style="display: inline-block; text-align: center; ">
-                <input id="Slider1" type="range" min="0" max="100" />
-            </div>
-            <div style="display: inline-block; text-align: center; ">
-                <p>規範</p>
-            </div>
-        </section>
-        <div style="text-align: center">
-            <a href="marching.html">
-                <input type="submit" value="マッチング" style="width: 80px; height: 40px; ">
-            </a>
-        </div>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/amazeui.min.js"></script>
+        <script>
+            $(function () {
+                // 动态计算新闻列表文字样式
+                auto_resize();
+                $(window).resize(function () {
+                    auto_resize();
+                });
+                $('.am-list-thumb img').load(function () {
+                    auto_resize();
+                });
+                $('.pet_article_like li:last-child').css('border', 'none');
+                function auto_resize() {
+                    $('.pet_list_one_nr').height($('.pet_list_one_img').height());
+                    // alert($('.pet_list_one_nr').height());
+                }
+                $('.pet_article_user').on('click', function () {
+                    if ($('.pet_article_user_info_tab').hasClass('pet_article_user_info_tab_show')) {
+                        $('.pet_article_user_info_tab').removeClass('pet_article_user_info_tab_show').addClass('pet_article_user_info_tab_cloes');
+                    } else {
+                        $('.pet_article_user_info_tab').removeClass('pet_article_user_info_tab_cloes').addClass('pet_article_user_info_tab_show');
+                    }
+                });
+                $('.pet_head_gd_ico').on('click', function () {
+                    $('.pet_more_list').addClass('pet_more_list_show');
+                });
+                $('.pet_more_close').on('click', function () {
+                    $('.pet_more_list').removeClass('pet_more_list_show');
+                });
+            });
+        </script>
         </form>
 </body>
 

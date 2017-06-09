@@ -1,5 +1,29 @@
 <html>
 <head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <!--<link rel="stylesheet" type="text/css" href="css/index.css" /> -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="css/amazeui.min.css">
+    <link rel="stylesheet" href="css/wap.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+    <title>Result-List</title>
     <style>
         section {
             text-align: center;
@@ -8,56 +32,66 @@
     </style> 
 </head>
 <body>
-    <section>
-        <img src="touxiang.jpg" style="width: 200px; height: 200px;">
-        <p>立命館　大郎</p>
-        <p>----------------------------------------</p>
-    </section>
-    <h3 style="text-align:left">特性評価</h3>
-    <section>
-        <div style="display: inline-block; text-align: center; ">
-            <p>内向</p>
+    <form class="form-horizontal" action="http://localhost:1337/" method="post" id="result_form">
+        <div class="navbar" style="background: #003333">
+            <h3 class="text-center" style="color: #FFFFFF">結果</h3>
         </div>
-        <div style="display: inline-block; text-align: center; ">
-            <input id="Slider1" type="range" min="0" max="100" />
+        <section>
+            <img src="touxiang.jpg" style="width: 200px; height: 200px;">
+            <p>シングル　大郎</p>
+            <p>----------------------------------------</p>
+        </section>
+        <h3 style="text-align:left">特性評価</h3>
+        <section>
+            <div style="display: inline-block; text-align: center; ">
+                <p>内向</p>
+            </div>
+            <div style="display: inline-block; text-align: center; ">
+                <input id="Slider1" type="range" min="0" max="100" />
+            </div>
+            <div style="display: inline-block; text-align: center; ">
+                <p>外向</p>
+            </div>
+        </section>
+        <section>
+            <div style="display: inline-block; text-align: center; ">
+                <p>現実</p>
+            </div>
+            <div style="display: inline-block; text-align: center; ">
+                <input id="Slider1" type="range" min="0" max="100" />
+            </div>
+            <div style="display: inline-block; text-align: center; ">
+                <p>直観</p>
+            </div>
+        </section>
+        <section>
+            <div style="display: inline-block; text-align: center; ">
+                <p>思考</p>
+            </div>
+            <div style="display: inline-block; text-align: center; ">
+                <input id="Slider1" type="range" min="0" max="100" />
+            </div>
+            <div style="display: inline-block; text-align: center; ">
+                <p>感情</p>
+            </div>
+        </section>
+        <section>
+            <div style="display: inline-block; text-align: center; ">
+                <p>柔軟</p>
+            </div>
+            <div style="display: inline-block; text-align: center; ">
+                <input id="Slider1" type="range" min="0" max="100" />
+            </div>
+            <div style="display: inline-block; text-align: center; ">
+                <p>規範</p>
+            </div>
+        </section>
+        <div style="text-align: center">
+            <a href="marching.html">
+                <input type="submit" value="マッチング" style="width: 80px; height: 40px; ">
+            </a>
         </div>
-        <div style="display: inline-block; text-align: center; ">
-            <p>外向</p>
-        </div>
-    </section>
-    <section>
-        <div style="display: inline-block; text-align: center; ">
-            <p>現実</p>
-        </div>
-        <div style="display: inline-block; text-align: center; ">
-            <input id="Slider1" type="range" min="0" max="100" />
-        </div>
-        <div style="display: inline-block; text-align: center; ">
-            <p>直観</p>
-        </div>
-    </section>
-    <section>
-        <div style="display: inline-block; text-align: center; ">
-            <p>思考</p>
-        </div>
-        <div style="display: inline-block; text-align: center; ">
-            <input id="Slider1" type="range" min="0" max="100" />
-        </div>
-        <div style="display: inline-block; text-align: center; ">
-            <p>感情</p>
-        </div>
-    </section>
-    <section>
-        <div style="display: inline-block; text-align: center; ">
-            <p>柔軟</p>
-        </div>
-        <div style="display: inline-block; text-align: center; ">
-            <input id="Slider1" type="range" min="0" max="100" />
-        </div>
-        <div style="display: inline-block; text-align: center; ">
-            <p>規範</p>
-        </div>
-    </section>
+        </form>
 </body>
 
 </html>

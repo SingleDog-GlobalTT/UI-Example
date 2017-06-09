@@ -16,10 +16,11 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <title>Information Page</title>
 </head>
-<body>
+<body style="background:#ececec">
 
 <div class="pet_mian" >
     <div class="pet_head">
+        <br>
         <header data-am-widget="header"
                 class="am-header am-header-default pet_head_block">
             <div class="am-header-left am-header-nav ">
@@ -44,27 +45,23 @@
                 <div class="pet_more_list_block_name_title">機能ナビ</div>
                 <ul>
                     <li>
-                        <a class="pet_more_list_block_line">
-                            <i class="iconfont pet_nav_xinxianshi pet_more_list_block_line_ico">&#xe601;</i>
-                            <div class="pet_more_list_block_line_font">マッチングスタート</div>
+                        <a class="pet_more_list_block_line" href="answer.html">
+                            <i class="iconfont pet_nav_xinxianshi pet_more_list_block_line_ico">&#xe601;</i>マッチングスタート
                         </a>
                     </li>
                     <li>
-                        <a class="pet_more_list_block_line">
-                            <i class="iconfont pet_nav_zhangzhishi pet_more_list_block_line_ico">&#xe606;</i>
-                            <div class="pet_more_list_block_line_font">質問作成</div>
+                        <a class="pet_more_list_block_line" href="create_question.html">
+                            <i class="iconfont pet_nav_zhangzhishi pet_more_list_block_line_ico">&#xe606;</i>質問作成
                         </a>
                     </li>
                     <li>
-                        <a class="pet_more_list_block_line">
-                            <i class="iconfont pet_nav_kantuya pet_more_list_block_line_ico">&#xe607;</i>
-                            <div class="pet_more_list_block_line_font">質問ランキング</div>
+                        <a class="pet_more_list_block_line" href="ranking.html">
+                            <i class="iconfont pet_nav_kantuya pet_more_list_block_line_ico">&#xe607;</i>質問ランキング
                         </a>
                     </li>
                     <li>
-                        <a class="pet_more_list_block_line">
-                            <i class="iconfont pet_nav_bk pet_more_list_block_line_ico">&#xe611;</i>
-                            <div class="pet_more_list_block_line_font">マッチング履歴</div>
+                        <a class="pet_more_list_block_line" href="result.html">
+                            <i class="iconfont pet_nav_bk pet_more_list_block_line_ico">&#xe611;</i>テスト結果履歴
                         </a>
                     </li>
                 </ul>
@@ -72,79 +69,57 @@
         </div>
 
     </div></div>
-    <div id="user_info" class="pet_content">
-        <table class="table text-center">
-            <tr>
-                <td>
-                    <img src="image/user.png" height="96" width="63" style="position: absolute;top: 120px;left: 40px"/>
-                    <h5 class="text-center " style="position: absolute;top: 210px;left: 23px;">シングル・太郎</h5>
-                </td>
-                <td>　　　　　　</td>
-                <td>
-                    <table class="table text-left">
-                        <tr style="background: #003333 ">
-                            <td>
-                                <h4 style="color: #FFFFFF">相性類似度:80%</h4>
-                            </td>
-                            <td><div id="show_all"></div></td>
+    <div class="pet_content pet_content_list">
+        <div class="pet_grzx">
 
-                        </tr>
-                        <tr>
-                            <td>
-                                <i class="iconfont pet_nav_kantuya pet_more_list_block_line_ico">&#xe607;</i>
-                                <h6>内向―外向:50%</h6>
-                            </td>
-                            <td><div id="show_1"></div></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <i class="iconfont pet_nav_kantuya pet_more_list_block_line_ico">&#xe607;</i>
-                                <h6>現実ー直感:99%</h6>
-                            </td>
-                            <td><div id="show_2"></div> </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <i class="iconfont pet_nav_kantuya pet_more_list_block_line_ico">&#xe607;</i>
-                                <h6>思考ー感情:80%</h6>
-                            </td>
-                           <td><div id="show_3"></div> </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <i class="iconfont pet_nav_kantuya pet_more_list_block_line_ico">&#xe607;</i>
-                                <h6>柔軟―規範:91%</h6>
-                            </td>
-                            <td><div id="show_4"></div> </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
-        <h4 class="text-center" >個人情報</h4>
-        <h5 class="text-center">
-        <table class="table">
-            <tr>
-                <td>年齢層：20代</td>
-                <td><div id="show_age"></div> </td>
-            </tr>
-            <tr>
-                <td>現在地：大阪府</td>
-                <td><div id="show_location"></div> </td>
-            </tr>
-            <tr>
-                <td>メールアドレス：abc@mail.com</td>
-                <td><div id="show_mail"></div> </td>
-            </tr>
-        </table>
-        </h5>
+        <div class="pet_grzx_nr">
+            <br>
+            <div class="pet_grzx_ico">
+                <img src="img/qq5.png" alt="">
+            </div>
+            <div class="pet_grzx_name">シングル・太郎</div>
+            <div class="pet_grzx_num_font">
+                相性類似度：95%
+            </div>
+            <div class="pet_hd_con_gp_list text-center" style="float: left;">
+                <span style="background: #99cc99;display: block;float: left;font-size: 15px" >内向外向:100%</span>
+                <span style="background: #ffcccc;display: block;float: left;font-size: 15px">現実直感:99%</span>
+                <span style="background: #ff99cc;display: block;float: left;font-size: 15px" >思考感情:80%</span>
+                <span style="background: #ccccff;display: block;float: left;font-size: 15px" >柔軟規範:91%</span>
+            </div>
+
+        </div>
+<br>
+            <div class="pet_grzx_list">
+                <div class="pet_content_main pet_article_like_delete">
+                    <div data-am-widget="list_news" class="am-list-news am-list-news-default am-no-layout">
+                        <div class="am-list-news-bd">
+                            <h4 class="text-center am-list-item-hd pet_list_one_bt" ><strong>個人情報</strong></h4>
+                            <h5 class="text-center">
+                            <table class="table">
+                                <tr>
+                                    <td>年齢層：20代</td>
+                                    <td><div id="show_age"></div> </td>
+                                </tr>
+                                <tr>
+                                    <td>現在地：大阪府</td>
+                                    <td><div id="show_location"></div> </td>
+                                </tr>
+                                <tr>
+                                    <td>メールアドレス：abc@mail.com</td>
+                                    <td><div id="show_mail"></div> </td>
+                                </tr>
+                            </table>
+                            </h5>
+                            <br><br>
+                            <div class="pet_article_footer_info">Copyright(c)2017 Singledog All Rights Reserved</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
     </div>
 
-    <br>
-    <br>
-    <div class="panel-footer text-center" style="background: #003333; hig" >
-        <h5 style="color: #FFFFFF">シングルドッグ株式会社</h5>
-    </div>
 </div>
 
 
@@ -208,6 +183,6 @@
     });
 
 </script>
-
+</div>
 </body>
 </html>

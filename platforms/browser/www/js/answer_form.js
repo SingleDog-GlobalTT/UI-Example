@@ -5,52 +5,48 @@ $('form#answer_form').submit(function (event) {
 
     event.preventDefault();
 
-    var $answer_form = $(this),
-        answer1 = $answer_form.find('input[name="q1"]').val(),
-        answer2 = $answer_form.find('input[name="q2"]').val(),
-        answer3 = $answer_form.find('input[name="q3"]').val(),
-        answer4 = $answer_form.find('input[name="q4"]').val(),
-        answer5 = $answer_form.find('input[name="q5"]').val(),
-        answer6 = $answer_form.find('input[name="q6"]').val(),
-        answer7 = $answer_form.find('input[name="q7"]').val(),
-        answer8 = $answer_form.find('input[name="q8"]').val(),
-        answer9 = $answer_form.find('input[name="q9"]').val(),
-        answer10 = $answer_form.find('input[name="q10"]').val(),
-        answer11 = $answer_form.find('input[name="q11"]').val(),
-        answer12 = $answer_form.find('input[name="q12"]').val(),
-        answer13 = $answer_form.find('input[name="q13"]').val(),
-        answer14 = $answer_form.find('input[name="q14"]').val(),
+    var category_counter = 0,
+        category_id = 1;
 
-        password = $login_form.find('input[name="password"]').val(),
+    var $answer_form = $(this),
+        answers = {answer_value: [], category_id: []},
         url = $answer_form.attr('action');
 
-    console.log(answer1,answer2,answer3,url);
+    for(var i=0; i<16; i++){
 
-    $.get(url,{
-        username:username,
-        password:password
-    },function (return_data) {
+        var answer_value = $answer_form.find('input[name="q'+(i+1)+'"]:checked').val();
+        var answer_category = category_id;
 
-        console.log("return: ",return_data[0].user_id);
-
-        for(var i=0;i<return_data.length;i++) {
-            $('div#show_user_id').append(
-                '<h2>' + return_data[i].user_id + '</h2>'
-            );
-            $('div#answer1').append(
-                '<h2>' +return_data[i].password+ '</h2>'
-            );
+        if(category_counter == 4){
+            console.log("update category");
+            category_counter = 0;
+            category_id++;
         }
 
-    });
-    document.body.onclick = function(){
-        var els = document.getElementsByName("q1");
-        for (var i = els.length; i--;){
-            var el = els[i]
-            if (el.checked){
-                alert(el.getAttribute("value"))
-            }
+        //check case user not choose any answer
+        if(typeof answer_value == "undefined") {
+            answers.answer_value.push(0);
+            answers.category_id.push(0);
         }
+        else{
+            answers.answer_value.push(answer_value);
+            answers.category_id.push(category_id);
+        }
+
+        category_counter++;
     }
+
+    console.log(answers,url);
+
+    $.post(url,{answer_value: answers}, function (category_value) {
+        console.log(category_value.answer_list[0]);
+
+        window.location.replace(
+            "matching.html?category1="+category_value.answer_list[0]+
+            "&category2="+category_value.answer_list[1]+
+            "&category3="+category_value.answer_list[2]+
+            "&category4="+category_value.answer_list[3]
+        );
+    })
 
 });

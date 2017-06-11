@@ -84,6 +84,28 @@
                 <div data-am-widget="tabs" class="am-tabs am-tabs-default pet_comment_list_tab" >
                     <div class="am-tabs-bd pet_pl_list">
                         <div class="am-tab-panel am-active">
+
+
+                            <div class="pet_comment_list_block">
+                                <div class="pet_comment_list_block_l"><img src="img/a2.png" alt=""></div>
+                                <div class="pet_comment_list_block_r">
+                                    <div class="pet_comment_list_block_r_info">Current user</div>
+                                    <div class="pet_comment_list_block_r_text">
+                                        <ul>
+                                            <li>相性類似度：94%
+                                                <a href="#" class="btn btn-info am-align-right">
+                                                    興味がある
+                                                </a>
+                                            </li>
+                                            <li>年齢層：20代</li>
+                                            <li>現在地：京都府</li>
+                                        </ul>
+                                        <div id="show_category" ></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
                             <div class="pet_comment_list_block">
                                 <div class="pet_comment_list_block_l"><img src="img/a1.png" alt=""></div>
                                 <div class="pet_comment_list_block_r">
@@ -118,6 +140,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="pet_comment_list_block">
                                 <div class="pet_comment_list_block_l"><img src="img/a3.png" alt=""></div>
                                 <div class="pet_comment_list_block_r">
@@ -203,10 +226,10 @@
     });
 
 </script>
-<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/amazeui.min.js"></script>
+<script src="js/matching.js"></script>
 <script>
     $(function(){
 
@@ -237,6 +260,40 @@
         $('.pet_more_close').on('click',function(){
             $('.pet_more_list').removeClass('pet_more_list_show');
         });
+
+        function parseURLParams(url) {
+            var queryStart = url.indexOf("?") + 1,
+                queryEnd   = url.indexOf("#") + 1 || url.length + 1,
+                query = url.slice(queryStart, queryEnd - 1),
+                pairs = query.replace(/\+/g, " ").split("&"),
+                parms = {}, i, n, v, nv;
+
+            if (query === url || query === "") return;
+
+            for (i = 0; i < pairs.length; i++) {
+                nv = pairs[i].split("=", 2);
+                n = decodeURIComponent(nv[0]);
+                v = decodeURIComponent(nv[1]);
+
+                if (!parms.hasOwnProperty(n)) parms[n] = [];
+                parms[n].push(nv.length === 2 ? v : null);
+            }
+            return parms;
+        }
+
+        var urlString = window.location.href;
+        urlParams = parseURLParams(urlString);
+
+        console.log("urlParams", urlParams);
+
+        $('div#show_category').append(
+            '内向外向: ' +Math.abs(urlParams.category1[0]/5*100)+"%<br/>"+
+            '現実直感: ' +Math.abs(urlParams.category2[0]/5*100)+"%<br/>"+
+            '思考感情: ' +Math.abs(urlParams.category3[0]/5*100)+"%<br/>"+
+            '柔軟規範: ' +Math.abs(urlParams.category4[0]/5*100)+"%"
+        );
+
+
     });
 
 </script>

@@ -42,7 +42,7 @@ $('form#answer_form').submit(function (event) {
         console.log(category_value.answer_list[0]);
 
         window.location.replace(
-            "matching.html?category1="+category_value.answer_list[0]+
+            "result.html?category1="+category_value.answer_list[0]+
             "&category2="+category_value.answer_list[1]+
             "&category3="+category_value.answer_list[2]+
             "&category4="+category_value.answer_list[3]

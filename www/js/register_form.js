@@ -6,8 +6,8 @@ $('form#register_form').submit(function (event) {
     event.preventDefault();
 
     var $register_form = $(this),
-        gender = $register_form.find('select[name="gender"]').val(),
         username = $register_form.find('input[name="username"]').val(),
+        gender = $register_form.find('select[name="gender"]').val(),
         password = $register_form.find('input[name="password"]').val(),
         email = $register_form.find('input[name="email"]').val(),
         tel = $register_form.find('input[name="tel"]').val(),
@@ -15,7 +15,8 @@ $('form#register_form').submit(function (event) {
         month = $register_form.find('select[name="month"]').val(),
         day = $register_form.find('select[name="day"]').val(),
         image = $register_form.find('input[name="image"]').val(),
-        url = $register_form.attr('action');
+        postcode = $register_form.find('input[name="postcode"]').val(),
+    url = $register_form.attr('action');
 
     console.log(gender,username,password,email,tel,year,month,day,image,url);
 
@@ -28,6 +29,7 @@ $('form#register_form').submit(function (event) {
         year:year,
         month:month,
         day:day,
+        postcode:postcode,
         image:image,
         url:url
     },function (return_data) {

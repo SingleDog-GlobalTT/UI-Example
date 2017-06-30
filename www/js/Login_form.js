@@ -22,7 +22,8 @@ $('form#login_form').submit(function (event) {
             alert("User or Password are error");
         }
         else{
-            window.location.replace("/homepage.html");
+            sessionStorage.setItem('user_id', return_data.user_id);
+            window.location.replace("/homepage.html?user_id=");
         }
     });
 

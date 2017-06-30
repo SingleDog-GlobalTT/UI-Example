@@ -16,15 +16,14 @@ $('form#login_form').submit(function (event) {
         username:username,
         password:password
     },function (return_data) {
+        console.log("return: ",return_data);
 
-        console.log("return: ",return_data[0].user_id);
-
-        for(var i=0;i<return_data.length;i++) {
-            $('div#show_user_id').append(
-                '<h2>' + return_data[i].user_id + '</h2>'
-            );
+        if(return_data.user_id == null){
+            alert("User or Password are error");
         }
-
+        else{
+            window.location.replace("/homepage.html");
+        }
     });
 
 });

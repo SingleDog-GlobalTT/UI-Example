@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <!--
     Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
-
     Licensed to the Apache Software Foundation (ASF) under one
     or more contributor license agreements.  See the NOTICE file
     distributed with this work for additional information
@@ -9,9 +8,7 @@
     to you under the Apache License, Version 2.0 (the
     "License"); you may not use this file except in compliance
     with the License.  You may obtain a copy of the License at
-
     http://www.apache.org/licenses/LICENSE-2.0
-
     Unless required by applicable law or agreed to in writing,
     software distributed under the License is distributed on an
     "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -22,13 +19,13 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
-    <!-- Good default declaration:
+	<meta charset="utf-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="msapplication-tap-highlight" content="no" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+	<!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+	<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+	<!-- Good default declaration:
     * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
     * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
     * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
@@ -36,91 +33,57 @@
         * Enable eval(): add 'unsafe-eval' to default-src
     * Create your own at http://cspisawesome.com
     -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
-
-    <!--<link rel="stylesheet" type="text/css" href="css/index.css" /> -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-    <title>Hello World</title>
+	<!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+	<!--<link rel="stylesheet" type="text/css" href="css/index.css" /> -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<title>Login Page</title>
 </head>
 
-<body>
+<body style="background:#ececec">
 
-    <h2>『質問』合コンの適正</h2>
-    <form class="form-group" action="index.html" method="post">
-        <fieldset class="form-group">
-            <legend>猫が好きですか？</legend>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios1" id="optionsRadios1" value="option1" >
-                    好きです。
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios1" id="optionsRadios2" value="option2">
-                    好きじゃないです。
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios1" id="optionsRadios3" value="option3" >
-                    どちらとも言えない。
-                </label>
-            </div>
-        </fieldset>
+<div id="show_user_id">
 
-        <fieldset class="form-group">
-            <legend>年上が好きですか？</legend>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadios4" value="option4" >
-                    好きです。
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadios5" value="option5">
-                    好きじゃないです。
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadios6" value="option6" >
-                    どちらとも言えない。
-                </label>
-            </div>
-        </fieldset>
+</div>
 
-        <fieldset class="form-group">
-            <legend>アニメが好きですか？</legend>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios3" id="optionsRadios7" value="option1" >
-                    好きです。
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios3" id="optionsRadios8" value="option2">
-                    好きじゃないです。
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optionsRadios3" id="optionsRadios9" value="option3" >
-                    どちらとも言えない。
-                </label>
-            </div>
-        </fieldset>
+<form class="form-horizontal" action="http://104.199.136.169/:8080/User/Login" method="get" id="login_form">
 
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    <div class="container" >
 
-    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <div style="padding:120px 60px 10px; ">
+        <img src="image/logo-dog.png" height="127" width="193"  class="img-responsive center-block" alt="Cinque Terre">
+        <h4 class="text-center">シングルドッグ婚カツ</h4>
+        <br>
+        <br>
 
+		<div class="input-group">
+            <span class="input-group-addon input-group-lg glyphicon glyphicon-envelope"></span>
+            <input type="text" name="username" autocomplete="mail" class="form-control"  id="username" placeholder="メールアドレス" required>
+		</div>
+
+       <br>
+		<div class="input-group">
+            <!-- <span class="input-group-addon">Password</span> -->
+            <span class="input-group-addon input-group-lg glyphicon glyphicon-pencil"></span>
+            <input type="text" name="password" autocomplete="pwd" class="col-lg-8 form-control" id="password" placeholder="パスワード"required>
+		</div>
+        <br>
+        <br>
+        <button type="submit" id="login1" class="btn btn-primary btn-block" style="background: #003333 " >ログイン</button>
+            <br>
+            <p class="text-center small"><a href="#forget"  style="color:#003333">パスワードを忘れた場合</a></p>
+            <br>
+            <br>
+        <a href="register.html"><button type="button" id="login2" class="btn btn-primary btn-block " style="background:#FFFFFF; color:#003333  ">登録</button></a>
+    </div>
+
+</div>
+    <div class="text-center pet_article_footer_info" >Copyright(c)2017 Singledog All Rights Reserved</div>
+
+</form>
+
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="js/Login_form.js"></script>
 </body>
-
 </html>

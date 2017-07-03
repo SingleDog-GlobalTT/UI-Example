@@ -87,7 +87,7 @@
     <!--ワリット：これ何？ -->
     </div></div>
 
-    <form class="form-horizontal" action="http://8f8f8a10.ngrok.io/Matching/AnswerRecord" method="post" id="answer_form">
+    <form class="form-horizontal" action="http://localhost:1337/Matching/AnswerRecord" method="post" id="answer_form">
         <div class="pet_content">
             <div class="pet_comment_list">
                 <div class="pet_comment_list_wap">
@@ -95,16 +95,11 @@
                     <div data-am-widget="tabs" class="am-tabs am-tabs-default pet_comment_list_tab" >
                         <div class="am-tabs-bd pet_pl_list">
                             <div class="am-tab-panel am-active">
-                                <div class="pet_comment_list_block">
-                                    <div id>
-                                        他人に自己紹介するのが苦手だと感じる
-                                    </div>
 
-                                    <input type="radio" name="q1"  value=1 >はい
-                                    <input type="radio" name="q1"  value=-1 />いいえ
-                                    <input type="radio" name="q1"  value=0 />どっちでもいえない
 
+                                <div id="answer_load" >
                                 </div>
+
                                 <div class="pet_comment_list_block">
                                     <div id="answer2">
                                         自分の考えに夢中になって、周囲のことを無視したり忘れることがよくある

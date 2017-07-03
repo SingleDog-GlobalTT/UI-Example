@@ -23,7 +23,9 @@ $('form#login_form').submit(function (event) {
         }
         else{
             sessionStorage.setItem('user_id', return_data.user_id);
-            window.location.replace("/homepage.html?user_id=");
+            var user_id = sessionStorage.getItem('user_id');
+            console.log("user_id: ", user_id);
+            window.location.replace("/homepage.html?user_id="+user_id);
         }
     });
 

@@ -1,12 +1,6 @@
 /**
- * Created by Varit on 6/12/17.
+ * Created by Varit on 7/3/17.
  */
-
-//call user_id
-var user_id = sessionStorage.getItem('user_id');
-console.log("User Session id: ", user_id);
-
-/*-----------------Show current test value----------------------*/
 //Calculate the result of test
 function parseURLParams(url) {
     var queryStart = url.indexOf("?") + 1,
@@ -33,10 +27,10 @@ var urlString = window.location.href,
 
 urlParams = parseURLParams(urlString);
 
-category_values[0] = urlParams.category1[0];
-category_values[1] = urlParams.category2[0];
-category_values[2] = urlParams.category3[0];
-category_values[3] = urlParams.category4[0];
+category_values[0] = urlParams.category1[0]/5*100;
+category_values[1] = urlParams.category2[0]/5*100;
+category_values[2] = urlParams.category3[0]/5*100;
+category_values[3] = urlParams.category4[0]/5*100;
 
 console.log("urlParams", urlParams);
 
@@ -47,17 +41,15 @@ $('div#show_category').append(
     '柔軟規範: ' +category_values[3]+"%"
 );
 
-/*-----------------Show current test value----------------------*/
+$('button#to_matching').click(function (event) {
 
 
-/*-----------------sent request for calculate ------------------*/
-var url = "/Matching/MatchingCalculation";
+    window.location.replace(
+        "matching.html?category1="+category_values[0]+
+        "&category2="+category_values[1]+
+        "&category3="+category_values[2]+
+        "&category4="+category_values[3]
 
-$.get(url,{
-    user_id: user_id,
-    category_value: category_values
-} ,function (calculate_result) {
+    );
 
 });
-
-/*-----------------sent request for calculate ------------------*/

@@ -51,7 +51,7 @@ $('div#show_category').append(
 
 
 /*-----------------sent request for calculate ------------------*/
-var url = "/Matching/MatchingCalculation";
+var url = "http://localhost:1337/Matching/MatchingCalculation";
 
 $.get(url,{
     user_id: user_id,

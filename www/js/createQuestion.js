@@ -12,19 +12,21 @@ $('form#create_form').submit(function (event) {
     var url = $create_form.attr('action');
 
     console.log(question_name, category_id, url);
-    /*
-    $.post(url, 
-        {
+
+    $.post(url, {
         question_name: question_name,
         category_id: category_id,
         user_id: user_id
-        }
-        )
-        */
+    }, function(response){
+        console.log("response data: ", response);
+    });
+
+    /*
     if (user_id == null || user_id == "undefined") {
         window.location.replace("/index.html");
     }
     else {
         window.location.replace("/homepage.html?user_id=" + user_id);
     }
+    */
 });

@@ -3,8 +3,8 @@
  */
 
 function loadQuestion(){
-    var url = "http://104.199.136.169:8080/Question/GetQuestion?question_type=1&question_num=4";
-    var url1 = "http://104.199.136.169:8080/Question/GetQuestion?question_type=2&question_num=4";
+    var url = "http://35.194.137.57:8080/Question/GetQuestion?question_type=1&question_num=4";
+    var url1 = "http://35.194.137.57:8080/Question/GetQuestion?question_type=2&question_num=4";
     var category_all = new array()  ;
     var count =1;
     $.getJSON(url, function (question) {
@@ -17,7 +17,7 @@ function loadQuestion(){
                 '<input type="radio" name="q'+(i+1)+'" value="1">はい'+
                 '<input type="radio" name="q'+(i+1)+'" value="-1">いいえ'+
                 '<input type="radio" name="q'+(i+1)+'" value="0">どっちでもいえない'+
-                '<img src="http://104.199.136.169:8080/assets/images/2.jpg">'+
+               /* '<img src="http://104.199.136.169:8080/assets/images/2.jpg">'+*/
                 '</div>'
             );
             category_all[i] = question.question_list[i].category_id;
@@ -38,7 +38,7 @@ function loadQuestion(){
 
                 '</div>'
             )
-            category_all[j+12] = question.question_list[j].category_id;
+            category_all[j+count-1] = question.question_list[j].category_id;
         }
     })
 

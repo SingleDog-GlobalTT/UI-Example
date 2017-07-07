@@ -67,9 +67,6 @@ $('form#answer_form').submit(function (event) {
 
     console.log("answer", answers,url);
 
-    $.post(url,{answer_value: answers});
-
-
     $.post(url,{
         answer_value: answers,
         category_id: answers.category_id,

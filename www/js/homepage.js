@@ -3,3 +3,7 @@
  */
 var user_id = sessionStorage.getItem('user_id');
 console.log("User Session id: ", user_id);
+
+if(user_id == null){
+    window.location.replace("index.html");
+}

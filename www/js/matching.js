@@ -28,6 +28,65 @@ function parseURLParams(url) {
     return parms;
 }
 
+function sendCalculate() {
+
+    var url = "http://localhost:1337/Matching/MatchingCalculation";
+
+    $.get(url, {
+        user_id: user_id,
+        category_value: category_values
+    }, function (calculate_result) {
+
+        console.log("calculate_result: ", calculate_result);
+
+        var user_num = calculate_result.user_id.length;
+
+        for(var i=0; i <user_num; i++) {
+
+            $('div#show_user_detail').append(
+                '<div class="pet_comment_list_block">' +
+                '<div class="pet_comment_list_block_l"><img src="img/a4.png" alt=""></div>' +
+                '<div class="pet_comment_list_block_r">' +
+                '<div class="pet_comment_list_block_r_info">' + calculate_result.user_detail[i].username + '</div>' + //User Name
+                '<div class="pet_comment_list_block_r_text">' +
+                '<ul>' +
+                '<a href="#" class="btn btn-info am-align-right">' +
+                '興味がある' +
+                '</a>' +
+                '<li>年齢：'+calculate_result.user_age[i]+'</li>' +
+                '<li>' +
+                    '現在地：' +
+                '</li>' +
+                '</ul>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>'
+
+            );
+
+
+
+        }//end append
+
+        /*
+        *
+        *    <!--href="http://microformats.org/wiki/h-adr"-->
+         <form class="h-adr" id="b1">
+         <!--href="https://www.iso.org/obp/ui/#iso:code:3166:JP"-->
+         <!--href="http://en.wikipedia.org/wiki/ISO_3166-1"-->
+         <span class="p-country-name" style="display:none;">Japan</span>
+
+         <input type="text" class="p-postal-code" size="8" maxlength="8"><br>
+
+         <input type="text" class="p-region p-locality p-street-address p-extended-address" /><br>
+         </form>
+        * */
+
+    });//end get
+}
+
+
 var urlString = window.location.href,
     category_values = [];
 
@@ -47,17 +106,8 @@ $('div#show_category').append(
     '柔軟規範: ' +category_values[3]+"%"
 );
 
-/*-----------------Show current test value----------------------*/
+console.log("Send");
+
+sendCalculate();
 
 
-/*-----------------sent request for calculate ------------------*/
-var url = "http://localhost:1337/Matching/MatchingCalculation";
-
-$.get(url,{
-    user_id: user_id,
-    category_value: category_values
-} ,function (calculate_result) {
-
-});
-
-/*-----------------sent request for calculate ------------------*/

@@ -80,7 +80,8 @@ $('form#answer_form').submit(function (event) {
             "result.html?category1="+category_value.answer_list[0]+
             "&category2="+category_value.answer_list[1]+
             "&category3="+category_value.answer_list[2]+
-            "&category4="+category_value.answer_list[3]
+            "&category4="+category_value.answer_list[3]+
+            "&user_id="+user_id
 
         );
 

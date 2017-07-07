@@ -1,7 +1,7 @@
-<html>
+﻿<html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <link rel="stylesheet" href="css/amazeui.min.css">
@@ -13,6 +13,7 @@
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/test.css">
     <title>Result-List</title>
     <style>
         section {
@@ -22,69 +23,70 @@
     </style>
 </head>
 <body style="background:#ececec">
-<form class="form-horizontal" action="http://localhost:1337/Result" method="post" id="result_form">
-    <div class="pet_mian" >
-        <div class="pet_head">
-            <header data-am-widget="header" class="am-header am-header-default pet_head_block">
-                <div class="am-header-left am-header-nav ">
-                    <a href="#left-link" class="iconfont pet_head_jt_ico">&#xe601;</a>
-                </div>
+    
+        <div class="pet_mian">
+            <div class="pet_head">
+                <header data-am-widget="header" class="am-header am-header-default pet_head_block">
+                    <div class="am-header-left am-header-nav ">
+                        <a href="#left-link" class="iconfont pet_head_jt_ico">&#xe601;</a>
+                    </div>
 
-                <h1 class="am-header-title pet_article_user">
-                    <span class="pet_article_user_ico"><img src="img/a1.png" alt="" class=""></span>
-                    <span class="pet_article_user_name">個人情報</span>
-                </h1>
+                    <h1 class="am-header-title pet_article_user">
+                        <span class="pet_article_user_ico"><img src="img/a1.png" alt="" class=""></span>
+                        <span class="pet_article_user_name">個人情報</span>
+                    </h1>
 
-                <div class="am-header-right am-header-nav">
-                    <a href="javascript:;" class="iconfont pet_head_gd_ico">&#xe600;</a>
-                </div>
-            </header>
-        </div>
+                    <div class="am-header-right am-header-nav">
+                        <a href="javascript:;" class="iconfont pet_head_gd_ico">&#xe600;</a>
+                    </div>
+                </header>
+            </div>
 
-        <div class="pet_more_list">
-            <div class="pet_more_list_block">
-                <div class="iconfont pet_more_close">×</div>
+            <div class="pet_more_list">
                 <div class="pet_more_list_block">
-                    <div class="pet_more_list_block_name">
-                        <div class="pet_more_list_block_name_title">機能ナビ</div>
-                        <ul>
-                            <li>
-                                <a class="pet_more_list_block_line" href="answer.html">
-                                    <i class="iconfont pet_nav_xinxianshi pet_more_list_block_line_ico">&#xe601;</i>マッチングスタート
-                                </a>
-                            </li>
-                            <li>
-                                <a class="pet_more_list_block_line" href="create_question.html">
-                                    <i class="iconfont pet_nav_zhangzhishi pet_more_list_block_line_ico">&#xe606;</i>質問作成
-                                </a>
-                            </li>
-                            <li>
-                                <a class="pet_more_list_block_line" href="ranking.html">
-                                    <i class="iconfont pet_nav_kantuya pet_more_list_block_line_ico">&#xe607;</i>質問ランキング
-                                </a>
-                            </li>
-                            <li>
-                                <a class="pet_more_list_block_line" href="result.html">
-                                    <i class="iconfont pet_nav_bk pet_more_list_block_line_ico">&#xe611;</i>テスト結果履歴
-                                </a>
-                            </li>
-                        </ul>
+                    <div class="iconfont pet_more_close">×</div>
+                    <div class="pet_more_list_block">
+                        <div class="pet_more_list_block_name">
+                            <div class="pet_more_list_block_name_title">機能ナビ</div>
+                            <ul>
+                                <li>
+                                    <a class="pet_more_list_block_line" href="answer.html">
+                                        <i class="iconfont pet_nav_xinxianshi pet_more_list_block_line_ico">&#xe601;</i>マッチングスタート
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="pet_more_list_block_line" href="create_question.html">
+                                        <i class="iconfont pet_nav_zhangzhishi pet_more_list_block_line_ico">&#xe606;</i>質問作成
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="pet_more_list_block_line" href="ranking.html">
+                                        <i class="iconfont pet_nav_kantuya pet_more_list_block_line_ico">&#xe607;</i>質問ランキング
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="pet_more_list_block_line" href="result.html">
+                                        <i class="iconfont pet_nav_bk pet_more_list_block_line_ico">&#xe611;</i>テスト結果履歴
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="pet_content" style="background: #FFFFFF">
-            <br>
-            <div class="pet_grzx_nr">
-                <div class="pet_grzx_ico">
-                    <img src="img/a5.png" alt="">
-                </div>
-                <div class="pet_grzx_name">AamazeUI</div>
+            <form class="form-horizontal" action="http://35.189.168.246:8080/Result" method="post" id="result_form">
+                <div class="pet_content" style="background: #FFFFFF">
+                    <br>
+                    <div class="pet_grzx_nr">
+                        <div class="pet_grzx_ico">
+                            <img src="img/a5.png" alt="">
+                        </div>
+                        <div class="pet_grzx_name">AamazeUI</div>
 
-            </div>
+                    </div>
 
-            <h3 style="text-align:left; margin-left: 60px">特性評価</h3>
-            <section>
+                    <h3 style="text-align:left; margin-left: 60px">特性評価</h3>
+                    <!--<section>
                 <div style="display: inline-block; text-align: center; ">
                     <p>内向</p>
                 </div>
@@ -127,57 +129,88 @@
                 <div style="display: inline-block; text-align: center; ">
                     <p>規範</p>
                 </div>
-            </section>
+            </section>-->
 
-            <div id="show_category">
+                    <div id="show_category">
 
-            </div>
+                    </div>
 
-            <br>
-            <div style="text-align: center">
-                    <button id="to_matching" type="button" class="btn btn-default btn-block text-center center-block" style="width: 80px; height: 40px;background: #FF9933;color: #FFFFFF">マッチングリスト</button>
-            </div>
+                    <br>
 
 
-            <br>
-        </div>
-        <div class="pet_article_footer_info">Copyright(c)2017 Singledog All Rights Reserved</div>
-    </div>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/amazeui.min.js"></script>
-    <script src="js/result.js"></script>
-    <script>
-        $(function () {
-            // 动态计算新闻列表文字样式
-            auto_resize();
-            $(window).resize(function () {
+
+                    <br>
+                </div>
+            </form>
+                <div style="text-align: center">
+                    <button type="button" class="btn btn-default btn-block text-center center-block" style="width: 80px; height: 40px;background: #FF9933;color: #FFFFFF">マッチングリスト</button>
+
+                </div>
+                <div class="pet_article_footer_info">Copyright(c)2017 Singledog All Rights Reserved</div>
+</div>
+    
+        <script src="js/jquery.min.js"></script>
+        <script src="js/amazeui.min.js"></script>
+        <script>
+            $(function () {
+                // 动态计算新闻列表文字样式
                 auto_resize();
-            });
-            $('.am-list-thumb img').load(function () {
-                auto_resize();
-            });
-            $('.pet_article_like li:last-child').css('border', 'none');
-            function auto_resize() {
-                $('.pet_list_one_nr').height($('.pet_list_one_img').height());
-                // alert($('.pet_list_one_nr').height());
-            }
-            $('.pet_article_user').on('click', function () {
-                if ($('.pet_article_user_info_tab').hasClass('pet_article_user_info_tab_show')) {
-                    $('.pet_article_user_info_tab').removeClass('pet_article_user_info_tab_show').addClass('pet_article_user_info_tab_cloes');
-                } else {
-                    $('.pet_article_user_info_tab').removeClass('pet_article_user_info_tab_cloes').addClass('pet_article_user_info_tab_show');
+                $(window).resize(function () {
+                    auto_resize();
+                });
+                $('.am-list-thumb img').load(function () {
+                    auto_resize();
+                });
+                $('.pet_article_like li:last-child').css('border', 'none');
+                function auto_resize() {
+                    $('.pet_list_one_nr').height($('.pet_list_one_img').height());
+                    // alert($('.pet_list_one_nr').height());
                 }
+                $('.pet_article_user').on('click', function () {
+                    if ($('.pet_article_user_info_tab').hasClass('pet_article_user_info_tab_show')) {
+                        $('.pet_article_user_info_tab').removeClass('pet_article_user_info_tab_show').addClass('pet_article_user_info_tab_cloes');
+                    } else {
+                        $('.pet_article_user_info_tab').removeClass('pet_article_user_info_tab_cloes').addClass('pet_article_user_info_tab_show');
+                    }
+                });
+                $('.pet_head_gd_ico').on('click', function () {
+                    $('.pet_more_list').addClass('pet_more_list_show');
+                });
+                $('.pet_more_close').on('click', function () {
+                    $('.pet_more_list').removeClass('pet_more_list_show');
+                });
             });
-            $('.pet_head_gd_ico').on('click', function () {
-                $('.pet_more_list').addClass('pet_more_list_show');
-            });
-            $('.pet_more_close').on('click', function () {
-                $('.pet_more_list').removeClass('pet_more_list_show');
-            });
-        });
-    </script>
-</form>
+        </script>
+    
+    <script src="js/result.js"></script>
+
+
+    <!--<script>
+        function parseURLParams(url) {
+            var queryStart = url.indexOf("?") + 1,
+                queryEnd = url.indexOf("#") + 1 || url.length + 1,
+                query = url.slice(queryStart, queryEnd - 1),
+                pairs = query.replace(/\+/g, " ").split("&"),
+                parms = {}, i, n, v, nv;
+            if (query === url || query === "") return;
+            for (i = 0; i < pairs.length; i++) {
+                nv = pairs[i].split("=", 2);
+                n = decodeURIComponent(nv[0]);
+                v = decodeURIComponent(nv[1]);
+                if (!parms.hasOwnProperty(n)) parms[n] = [];
+                parms[n].push(nv.length === 2 ? v : null);
+            }
+            return parms;
+        }
+        var urlString = window.location.href;
+        urlParams = parseURLParams(urlString);
+        console.log("urlParams", urlParams);
+        $('div#show_category').append(
+            '内向外向: ' + Math.abs(urlParams.category1[0] / 5 * 100) + "%<br/>" +
+            '現実直感: ' + Math.abs(urlParams.category2[0] / 5 * 100) + "%<br/>" +
+            '思考感情: ' + Math.abs(urlParams.category3[0] / 5 * 100) + "%<br/>" +
+            '柔軟規範: ' + Math.abs(urlParams.category4[0] / 5 * 100) + "%"
+        );
+    </script-->>
 </body>
-
-
 </html>

@@ -19,7 +19,7 @@ $('form#register_form').submit(function (event) {
             console.log(json);
 
             if(json.status == "Success"){
-                window.location.replace("/index.html");
+                window.location.replace("index.html");
             }
         }
     });

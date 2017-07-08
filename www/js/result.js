@@ -27,10 +27,10 @@ var urlString = window.location.href,
 
 urlParams = parseURLParams(urlString);
 
-category_values[0] = urlParams.category1[0]/5*100;
-category_values[1] = urlParams.category2[0]/5*100;
-category_values[2] = urlParams.category3[0]/5*100;
-category_values[3] = urlParams.category4[0]/5*100;
+category_values[0] = urlParams.category1[0];
+category_values[1] = urlParams.category2[0];
+category_values[2] = urlParams.category3[0];
+category_values[3] = urlParams.category4[0];
 
 console.log("urlParams", urlParams);
 

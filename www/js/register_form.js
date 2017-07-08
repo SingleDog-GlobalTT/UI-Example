@@ -2,6 +2,7 @@
  * Created by tyouki on 2017/05/15.
  */
 
+
 $('form#register_form').submit(function (event) {
     event.preventDefault();
 
@@ -15,10 +16,10 @@ $('form#register_form').submit(function (event) {
         data: params,
         dataType: "json",
         success: function( json ) {
-           console.log(json);
+            console.log(json);
 
             if(json.status == "Success"){
-               window.location.replace("/index.html");
+                window.location.replace("/index.html");
             }
         }
     });

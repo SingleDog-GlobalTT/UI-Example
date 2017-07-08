@@ -22,7 +22,7 @@
     </style>
 </head>
 <body style="background:#ececec">
-<form class="form-horizontal" action="http://localhost:1337/Result" method="post" id="result_form">
+<form class="form-horizontal" action="http://104.199.136.169:8080/Result" method="post" id="result_form">
     <div class="pet_mian" >
         <div class="pet_head">
             <header data-am-widget="header" class="am-header am-header-default pet_head_block">
@@ -135,7 +135,9 @@
 
             <br>
             <div style="text-align: center">
-                    <button id="to_matching" type="button" class="btn btn-default btn-block text-center center-block" style="width: 80px; height: 40px;background: #FF9933;color: #FFFFFF">マッチングリスト</button>
+                <a href="matching.html">
+                    <button type="button" class="btn btn-default btn-block text-center center-block" style="width: 80px; height: 40px;background: #FF9933;color: #FFFFFF">マッチングリスト</button>
+                </a>
             </div>
 
 
@@ -145,7 +147,6 @@
     </div>
     <script src="js/jquery.min.js"></script>
     <script src="js/amazeui.min.js"></script>
-    <script src="js/result.js"></script>
     <script>
         $(function () {
             // 动态计算新闻列表文字样式
@@ -179,5 +180,40 @@
 </form>
 </body>
 
+<script>
+
+    function parseURLParams(url) {
+        var queryStart = url.indexOf("?") + 1,
+            queryEnd   = url.indexOf("#") + 1 || url.length + 1,
+            query = url.slice(queryStart, queryEnd - 1),
+            pairs = query.replace(/\+/g, " ").split("&"),
+            parms = {}, i, n, v, nv;
+
+        if (query === url || query === "") return;
+
+        for (i = 0; i < pairs.length; i++) {
+            nv = pairs[i].split("=", 2);
+            n = decodeURIComponent(nv[0]);
+            v = decodeURIComponent(nv[1]);
+
+            if (!parms.hasOwnProperty(n)) parms[n] = [];
+            parms[n].push(nv.length === 2 ? v : null);
+        }
+        return parms;
+    }
+
+    var urlString = window.location.href;
+    urlParams = parseURLParams(urlString);
+
+    console.log("urlParams", urlParams);
+
+    $('div#show_category').append(
+        '内向外向: ' +Math.abs(urlParams.category1[0]/5*100)+"%<br/>"+
+        '現実直感: ' +Math.abs(urlParams.category2[0]/5*100)+"%<br/>"+
+        '思考感情: ' +Math.abs(urlParams.category3[0]/5*100)+"%<br/>"+
+        '柔軟規範: ' +Math.abs(urlParams.category4[0]/5*100)+"%"
+    );
+
+</script>
 
 </html>

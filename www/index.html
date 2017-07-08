@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="msapplication-tap-highlight" content="no" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+	<!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+	<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+	<!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+	<!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+	<!--<link rel="stylesheet" type="text/css" href="css/index.css" /> -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<title>Login Page</title>
+</head>
+
+<body style="background:#ececec">
+
+<div id="show_user_id">
+
+</div>
+
+<form class="form-horizontal" action="http://localhost:1337/User/Login" method="post" id="login_form">
+
+    <div class="container" >
+
+    <div style="padding:120px 60px 10px; ">
+        <img src="image/logo-dog.png" height="127" width="193"  class="img-responsive center-block" alt="Cinque Terre">
+        <h4 class="text-center">シングルドッグ婚カツ</h4>
+        <br>
+        <br>
+
+		<div class="input-group">
+            <span class="input-group-addon input-group-lg glyphicon glyphicon-envelope"></span>
+            <input type="text" name="username" autocomplete="mail" class="form-control"  id="username" placeholder="メールアドレス" required>
+		</div>
+
+       <br>
+		<div class="input-group">
+            <!-- <span class="input-group-addon">Password</span> -->
+            <span class="input-group-addon input-group-lg glyphicon glyphicon-pencil"></span>
+            <input type="text" name="password" autocomplete="pwd" class="col-lg-8 form-control" id="password" placeholder="パスワード"required>
+		</div>
+        <br>
+        <br>
+        <button type="submit" id="login1" class="btn btn-primary btn-block" style="background: #003333 " >ログイン</button>
+            <br>
+            <p class="text-center small"><a href="#forget"  style="color:#003333">パスワードを忘れた場合</a></p>
+            <br>
+            <br>
+        <a href="register.html"><button type="button" id="login2" class="btn btn-primary btn-block " style="background:#FFFFFF; color:#003333  ">登録</button></a>
+    </div>
+
+</div>
+    <div class="text-center pet_article_footer_info" >Copyright(c)2017 Singledog All Rights Reserved</div>
+
+</form>
+
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="js/Login_form.js"></script>
+</body>
+</html>

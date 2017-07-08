@@ -3,38 +3,39 @@
  */
 
 function loadQuestion(){
-    var url = "http://35.194.137.57:8080/Question/GetQuestion?question_type=1&question_num=4";
-    var url1 = "http://35.194.137.57:8080/Question/GetQuestion?question_type=2&question_num=4";
-    var category_all = new array()  ;
+    var url = "http://35.189.168.246:8080/Question/GetQuestion?question_type=1&question_num=4";
+    var url1 = "http://35.189.168.246:8080/Question/GetQuestion?question_type=2&question_num=4";
+    var category_all = [] ;
     var count =1;
     $.getJSON(url, function (question) {
         console.log("question: ", question.question_list);
         for(var i=0; i<question.question_list.length;i++) {
             $('div#answer_load').append(
                 '<div class="pet_comment_list_block">'+
-                '<div>'+ question.question_list[i].question_name +'</div>'
+                '<div>'+(i+1)+'.'+ question.question_list[i].question_name +'</div>'
                 +
                 '<input type="radio" name="q'+(i+1)+'" value="1">はい'+
                 '<input type="radio" name="q'+(i+1)+'" value="-1">いいえ'+
                 '<input type="radio" name="q'+(i+1)+'" value="0">どっちでもいえない'+
-               /* '<img src="http://104.199.136.169:8080/assets/images/2.jpg">'+*/
+                /* '<img src="http://104.199.136.169:8080/assets/images/2.jpg">'+*/
                 '</div>'
             );
             category_all[i] = question.question_list[i].category_id;
             count++;
-            console.log("user_id="+question.question_list[i].user_id+",question_id="+question.question_list[i].question_id);
+            console.log("user_id="+question.question_list[i].user_id+",category_id="+question.question_list[i].category_id);
         }
     });
+
     $.getJSON(url1,function (question) {
         console.log("question_user: ", question.question_list);
         for(var j=0; j<question.question_list.length;j++){
             $('div#user_question').append(
                 '<div class="pet_comment_list_block">'+
-                '<div>'+ question.question_list[i].question_name +'</div>'
+                '<div>'+(j+count)+'.'+ question.question_list[j].question_name +'</div>'
                 +
-                '<input type="radio" name="q'+(i+count)+'" value="1">はい'+
-                '<input type="radio" name="q'+(i+count)+'" value="-1">いいえ'+
-                '<input type="radio" name="q'+(i+count)+'" value="0">どっちでもいえない'+
+                '<input type="radio" name="q'+(j+count)+'" value="1">はい'+
+                '<input type="radio" name="q'+(j+count)+'" value="-1">いいえ'+
+                '<input type="radio" name="q'+(j+count)+'" value="0">どっちでもいえない'+
 
                 '</div>'
             )
@@ -53,18 +54,18 @@ function loadQuestion(){
             answers = {answer_value: [], category_id: []},
             url = $answer_form.attr('action');
 
-       for(var i=0; i<category_all.length; i++){
+        for(var i=0; i<category_all.length; i++){
 
             var answer_value = $answer_form.find('input[name="q'+(i+1)+'"]:checked').val();
             var answer_category = category_all[i];
-            console.log(answer_value);
-  /*          if(category_counter == 4){
-                console.log("update category");
-                category_counter = 0;
-                category_id++;
-            }
+            console.log(answer_value,category_all[i]);
+            /*          if(category_counter == 4){
+             console.log("update category");
+             category_counter = 0;
+             category_id++;
+             }
 
-            //check case user not choose any answer*/
+             //check case user not choose any answer*/
             if(typeof answer_value == "undefined") {
                 answers.answer_value.push(0);
                 answers.category_id.push(0);
@@ -74,7 +75,7 @@ function loadQuestion(){
                 answers.category_id.push(category_all[i]);
             }
 
- //           category_counter++;
+            //           category_counter++;
         }
         var user_id = sessionStorage.getItem('user_id');
         $.post(url,{
@@ -84,7 +85,7 @@ function loadQuestion(){
             },
             function (category_value) {
 
-                console.log("category_value.answer_list: ",category_value.answer_list[0]);
+//                console.log("category_value.answer_list: ",category_value.answer_list[0]);
 
                 window.location.replace(
                     "result.html?category1="+category_value.answer_list[0]+
@@ -97,5 +98,3 @@ function loadQuestion(){
     });
 }
 loadQuestion();
-
-

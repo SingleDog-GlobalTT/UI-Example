@@ -16,7 +16,64 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <title>Information Page</title>
 </head>
-<body style="background:#ececec">
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script>
+    function loadpost() {
+        var user_id = sessionStorage.getItem('user_id');
+//        user_id= 2;
+        var url="http://35.189.168.246:8080/User/Profile?user_id=" +user_id ;
+        $.getJSON(url, function (user) {
+            document.getElementById("zip").value= user.postcode;
+            console.log("user_zip:",user.postcode);
+        });
+
+    }
+    loadpost();
+    // 郵便番号から住所を取得
+    function setState() {
+        var url = "https://maps.googleapis.com/maps/api/geocode/json";
+        var zip = $('#zip').val();
+        // ここでzipのバリデーションを行ってください
+        /*      $.ajax({
+         type : 'get',
+         url : 'https://maps.googleapis.com/maps/api/geocode/json',
+         crossDomain : true,
+         dataType : 'json',
+         data : {
+         address : zip,
+         language : 'ja',
+         sensor : false
+         },
+         success :*/
+        $.getJSON(url,
+            {
+                address:zip,
+                language:"ja",
+                sensor : false
+            },
+            function(resp){
+                if(resp.status == "OK"){
+                    // APIのレスポンスから住所情報を取得
+                    var obj = resp.results[0].address_components;
+                    console.log("obj::::",obj);
+                    if (obj.length < 5) {
+                        alert('正しい郵便番号を入力してください');
+                        return false;
+                    }
+                    //$('#country').val(obj[4]['long_name']); // 国
+                    $('#state').val(obj[3]['long_name']); // 都道府県
+                    $('#city').val(obj[2]['long_name']);  // 市区町村
+                    $('#address1').val(obj[1]['long_name']); // 番地
+                }else{
+                    alert('住所情報が取得できませんでした');
+                    return false;
+                }
+            }
+        );
+    }
+</script>
+
+<body style="background:#ececec" onload="setState()">
 
 <div class="pet_mian" >
     <div class="pet_head">
@@ -71,117 +128,123 @@
     <div class="pet_content pet_content_list">
         <div class="pet_grzx">
 
-        <div class="pet_grzx_nr">
-            <br>
-            <div class="pet_grzx_ico">
-                <img src="img/qq5.png" alt="">
-            </div>
-            <div class="pet_grzx_name">シングル・太郎</div>
-            <div class="pet_grzx_num_font">
-                相性類似度：95%
-            </div>
-            <div class="pet_hd_con_gp_list text-center" style="float: left;">
-                <span style="background: #99cc99;display: block;float: left;font-size: 15px" >内向外向:100%</span>
-                <span style="background: #ffcccc;display: block;float: left;font-size: 15px">現実直感:99%</span>
-                <span style="background: #ff99cc;display: block;float: left;font-size: 15px" >思考感情:80%</span>
-                <span style="background: #ccccff;display: block;float: left;font-size: 15px" >柔軟規範:91%</span>
-            </div>
+            <div class="pet_grzx_nr">
+                <br>
+                <div class="pet_grzx_ico" id="image_load">
+                    <!--<img src="img/qq5.png" alt="">-->
+                </div>
+                <div class="pet_grzx_name" id="name_load"><div id="show_name"><!--シングル・太郎 --></div>
+                    <div class="pet_grzx_num_font" id="total_score">
+                        相性類似度：95%
+                    </div>
+                    <!--    <div class="pet_hd_con_gp_list text-center"  style="float: left;">
+                            <div id="scores_load"></div>
+                    <!--    <span style="background: #99cc99;display: block;float: left;font-size: 15px" >内向外向:100%</span>
+                            <span style="background: #ffcccc;display: block;float: left;font-size: 15px">現実直感:99%</span>
+                            <span style="background: #ff99cc;display: block;float: left;font-size: 15px" >思考感情:80%</span>
+                            <span style="background: #ccccff;display: block;float: left;font-size: 15px" >柔軟規範:91%</span>
+                        </div>-->
 
-        </div>
-<br>
-            <div class="pet_grzx_list">
-                <div class="pet_content_main pet_article_like_delete">
-                    <div data-am-widget="list_news" class="am-list-news am-list-news-default am-no-layout">
-                        <div class="am-list-news-bd">
-                            <h4 class="text-center am-list-item-hd pet_list_one_bt" ><strong>個人情報</strong></h4>
-                            <h5 class="text-center">
-                            <table class="table">
-                                <tr>
-                                    <td>年齢層：20代</td>
-                                    <td><div id="show_age"></div> </td>
-                                </tr>
-                                <tr>
-                                    <td>現在地：大阪府</td>
-                                    <td><div id="show_location"></div> </td>
-                                </tr>
-                                <tr>
-                                    <td>メールアドレス：abc@mail.com</td>
-                                    <td><div id="show_mail"></div> </td>
-                                </tr>
-                            </table>
-                            </h5>
-                            <br><br>
-                            <div class="pet_article_footer_info">Copyright(c)2017 Singledog All Rights Reserved</div>
+                </div>
+                <br>
+                <div class="pet_grzx_list">
+                    <div class="pet_content_main pet_article_like_delete">
+                        <div data-am-widget="list_news" class="am-list-news am-list-news-default am-no-layout">
+                            <div class="am-list-news-bd" >
+                                <h3 class="text-center am-list-item-hd pet_list_one_bt" ><strong>個人情報</strong></h3>
+                                <h4 class="text-center">
+                                    <br>
+                                    <strong>年齢：</strong><div id="show_age"></div>
+                                    <br><br>
+                                    <strong>現在地：</strong>
+                                    <input id="zip" name="zip" type="text" placeholder="1600002" hidden/>
+                                    <!--                               <input class="studentEnrollment_button" type="button" id="clickMe" onClick="setState()"/>   -->
+                                    <input id="state" name="state" type="text" placeholder="東京都" />
+                                    <input id="city" name="city" type="text" placeholder="新宿区" />
+                                    <!--
+                                    <form class="h-adr" id="a1">
+                                        href="https://www.iso.org/obp/ui/#iso:code:3166:JP"
+                                        <href="http://en.wikipedia.org/wiki/ISO_3166-1"
+                                        <span class="p-country-name" style="display:none;">Japan</span>
+
+                                        <input type="text" id="postcode1" class="p-postal-code" size="8" maxlength="8" hidden readonly><br>
+
+                                        <input type="text" class="p-region p-locality p-street-address p-extended-address" /><br>
+
+                                    </form>-->
+                                    <br><br>
+                                    <strong>メールアドレス：</strong><div id="show_mail"></div>
+                                    <!-- <table class="table">
+                                        <tr>
+                                           <td>20代</td>
+                                        <td >年齢層：<div id="show_age"></div>代 </td>
+                                    </tr>
+                                    <tr>
+                                           <td>大阪府</td>
+                                            <td>現在地：<div id="show_location"></div> </td>
+                                        </tr>
+                                        <tr>
+                                          <td>abc@mail.com</td>
+                                            <td>メールアドレス：<div id="show_mail"></div> </td>
+                                        </tr>
+                                    </table> -->
+                                </h4>
+                                <br><br>
+                                <div class="pet_article_footer_info">Copyright(c)2017 Singledog All Rights Reserved</div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
 
+        </div>
+
+        <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/yubinbango.js" charset="UTF-8"></script>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/amazeui.min.js"></script>
+        <script src="js/information_form.js"></script>
+        <script>
+            $(function(){
+
+                // 动态计算新闻列表文字样式
+                auto_resize();
+                $(window).resize(function() {
+                    auto_resize();
+                });
+                $('.am-list-thumb img').load(function(){
+                    auto_resize();
+                });
+                $('.pet_article_like li:last-child').css('border','none');
+                function auto_resize(){
+                    $('.pet_list_one_nr').height($('.pet_list_one_img').height());
+                    // alert($('.pet_list_one_nr').height());
+                }
+                $('.pet_article_user').on('click',function(){
+                    if($('.pet_article_user_info_tab').hasClass('pet_article_user_info_tab_show')){
+                        $('.pet_article_user_info_tab').removeClass('pet_article_user_info_tab_show').addClass('pet_article_user_info_tab_cloes');
+                    }else{
+                        $('.pet_article_user_info_tab').removeClass('pet_article_user_info_tab_cloes').addClass('pet_article_user_info_tab_show');
+                    }
+                });
+
+                $('.pet_head_gd_ico').on('click',function(){
+                    $('.pet_more_list').addClass('pet_more_list_show');
+                });
+                $('.pet_more_close').on('click',function(){
+                    $('.pet_more_list').removeClass('pet_more_list_show');
+                });
+            });
+
+        </script>
+        <script language="JavaScript">
+
+        </script>
     </div>
 
-</div>
-
-
-<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/Login_form.js"></script>
-
-<script>
-    console.log("user's storage: ", sessionStorage.user_id);
-    var user_id = sessionStorage.user_id,
-        url = "http://localhost:1337/User/Profile";
-    callOtherDomain();
-    loadUserInfo(user_id);
-    function loadUserInfo() {
-        $.get(url,{user_id: user_id}, function (return_data) {
-            //$('div#user_info').append(return_data);
-            console.log(return_data);
-        })
-    }
-    var invocation = new XMLHttpRequest();
-    function callOtherDomain() {
-        if(invocation) {
-            invocation.open('GET', url, true);
-            invocation.onreadystatechange = handler;
-            invocation.send();
-        }
-    }
-</script>
-<script src="js/jquery.min.js"></script>
-<script src="js/amazeui.min.js"></script>
-<script>
-    $(function(){
-
-        // 动态计算新闻列表文字样式
-        auto_resize();
-        $(window).resize(function() {
-            auto_resize();
-        });
-        $('.am-list-thumb img').load(function(){
-            auto_resize();
-        });
-        $('.pet_article_like li:last-child').css('border','none');
-        function auto_resize(){
-            $('.pet_list_one_nr').height($('.pet_list_one_img').height());
-            // alert($('.pet_list_one_nr').height());
-        }
-        $('.pet_article_user').on('click',function(){
-            if($('.pet_article_user_info_tab').hasClass('pet_article_user_info_tab_show')){
-                $('.pet_article_user_info_tab').removeClass('pet_article_user_info_tab_show').addClass('pet_article_user_info_tab_cloes');
-            }else{
-                $('.pet_article_user_info_tab').removeClass('pet_article_user_info_tab_cloes').addClass('pet_article_user_info_tab_show');
-            }
-        });
-
-        $('.pet_head_gd_ico').on('click',function(){
-            $('.pet_more_list').addClass('pet_more_list_show');
-        });
-        $('.pet_more_close').on('click',function(){
-            $('.pet_more_list').removeClass('pet_more_list_show');
-        });
-    });
-
-</script>
 </div>
 </body>
 </html>

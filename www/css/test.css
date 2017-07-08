@@ -1,0 +1,16 @@
+.chart li {
+    width:70px;
+    height:140px;
+    float:left;
+    background:#FFFFFF url(http://images.cnblogs.com/cnblogs_com/rubylouvre/202680/o_pillar.gif) center center repeat-y;
+}
+.chart li em,  .chart li span,.chart li strong {
+    display:block;
+    height:20px;
+    text-align:center;
+    background: #FFFFFF;
+}
+.chart li span {
+    height:100px;
+    background:transparent url(http://images.cnblogs.com/cnblogs_com/rubylouvre/202680/o_mask.jpg)  no-repeat;
+}

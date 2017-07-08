@@ -1,5 +1,5 @@
 /**
- * Created by Varit on 7/3/17.
+ * Created by tyouki on 2017/07/07.
  */
 //Calculate the result of test
 function parseURLParams(url) {
@@ -27,18 +27,24 @@ var urlString = window.location.href,
 
 urlParams = parseURLParams(urlString);
 
-category_values[0] = urlParams.category1[0];
-category_values[1] = urlParams.category2[0];
-category_values[2] = urlParams.category3[0];
-category_values[3] = urlParams.category4[0];
+category_values[0] = urlParams.category1[0]/8*100;
+category_values[1] = urlParams.category2[0]/8*100;
+category_values[2] = urlParams.category3[0]/8*100;
+category_values[3] = urlParams.category4[0]/8*100;
 
 console.log("urlParams", urlParams);
 
 $('div#show_category').append(
-    '内向外向: ' +category_values[0]+"%<br/>"+
-    '現実直感: ' +category_values[1]+"%<br/>"+
-    '思考感情: ' +category_values[2]+"%<br/>"+
-    '柔軟規範: ' +category_values[3]+"%"
+    '<ul class="chart">' +
+    '<li><em>外向</em><span style="background-position: center -' + category_values[0] + 'px"></span><strong>' + category_values[0] + '%</strong><em>内向</em></li>' +
+    '<li><em>直感</em><span style="background-position: center -' + category_values[1] + 'px"></span><strong>' + category_values[1] + '%</strong><em>現実</em></li>' +
+    '<li><em>感情</em><span style="background-position: center -' + category_values[2] + 'px"></span><strong>' + category_values[2] + '%</strong><em>思考</em></li>' +
+    '<li><em>規範</em><span style="background-position: center -' + category_values[3] + 'px"></span><strong>' + category_values[3] + '%</strong><em>柔軟</em></li>' +
+    '</ul>'
+    //'内向外向: ' +category_values[0]+"%<br/>"+
+    //'現実直感: ' +category_values[1]+"%<br/>"+
+    //'思考感情: ' +category_values[2]+"%<br/>"+
+    //'柔軟規範: ' +category_values[3]+"%"
 );
 
 $('button#to_matching').click(function (event) {

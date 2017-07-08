@@ -8,9 +8,13 @@
     <link rel="stylesheet" href="css/amazeui.min.css">
     <link rel="stylesheet" href="css/wap.css">
     <link rel="stylesheet" href="css/like-content.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <title>ranking</title>
 </head>
 <body style="background:#ececec">
+<div class="container">
+
 <div class="pet_mian" >
     <div class="pet_head">
         <header data-am-widget="header"
@@ -89,7 +93,7 @@
                                 <option value="1">男</option>
                                 <option value="2">女</option>
                             </select>
-                            <h7 style="margin-left: 100px">並び替え
+                            <h7>並び替え
                                 <select name="sort-select" id="sort-select" >
                                     <option selected="" value="1">人気順</option>
                                     <!--<option value="1">人気順</option>-->
@@ -100,14 +104,9 @@
 
                     </div>
 
-                    <div data-am-widget="tabs" class="am-tabs am-tabs-default pet_comment_list_tab">
-                        <div class="col-sm-offset-2 col-sm-10 center-block " style="text-align: center">
-                            <div data-tab-panel-0 class="am-tab-panel am-active">
-                                <div class="am-tabs-bd pet_pl_list">
-                                    <button type="button" onclick="search()" class="btn btn-default btn-block text-center center-block" style="width: 60px; height: 30px;background: #FF9933;color: #FFFFFF">検索</button>
-                                </div>
-                            </div>
-                        </div>
+                    <div >
+                        <button type="button" onclick="search()" class="btn btn-default btn-block text-center center-block" style="width: 60px; height: 30px;background: #FF9933;color: #FFFFFF">検索</button>
+
                     </div>
 
                 </div>
@@ -115,16 +114,19 @@
             </div>
         </div>
     </form>
-    <div id="question_load">
+
+        <div id="question_load">
 
     </div>
     <div class="pet_article_footer_info">Copyright(c)2017 Singledog All Rights Reserved</div>
+    </div>
 </div>
 
 
 <script src="js/jquery.min.js"></script>
 <script src="js/amazeui.min.js"></script>
 <script src="js/ranking.js"></script>
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
     $(function(){
         // 动态计算新闻列表文字样式
